@@ -175,7 +175,6 @@ npm run build
 Para servir:
 \`\`\`bash
 npx http-server dist/
-# Ou copiar para servidor web (Nginx, Apache)
 \`\`\`
 
 ## 🎨 Customização Avançada

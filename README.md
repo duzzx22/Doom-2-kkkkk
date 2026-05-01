@@ -9,7 +9,6 @@ Um jogo FPS estilo retro ambientado em 1899, misturando steampunk, arquitetura v
 ## 🎮 Características
 
 - **Jogo Totalmente Funcional**: Campanha offline completa com 5 níveis
-- **Multiplayer em Tempo Real**: Suporte para até 32 jogadores via WebSockets
 - **Cross-Platform**: Web, PC (Electron/Tauri), Mobile (Android/iOS via Capacitor)
 - **Otimizado para Performance**: 60+ FPS em dispositivos mid-range
 - **Controles Adaptativos**: Teclado/mouse para PC, joysticks virtuais + giroscópio para mobile
@@ -35,24 +34,31 @@ cd iron-epoch-1899
 npm install
 \`\`\`
 
+## 🛠️ Desenvolvimento no VS Code
+
+O projeto inclui tarefas configuradas para facilitar o desenvolvimento no VS Code:
+
+- **Run Dev Server**: Executa o servidor de desenvolvimento
+- **Build for Production**: Compila para produção
+
+Para executar, pressione \`Ctrl+Shift+P\` e digite "Tasks: Run Task", então selecione a tarefa desejada.
+
 ## 🎮 Como Jogar
 
-### No Navegador (Web)
+### Desenvolvimento
 
-**Modo Offline:**
 \`\`\`bash
 npm run dev
 \`\`\`
 Em seguida, abra o navegador em \`http://localhost:5173\`
 
-**Modo Multiplayer (com servidor):**
-\`\`\`bash
-# Terminal 1 - Start servidor
-npm run server
+### Produção
 
-# Terminal 2 - Start cliente
-npm run dev
+\`\`\`bash
+npm run build
+npx http-server dist
 \`\`\`
+Em seguida, abra o navegador em \`http://localhost:8080\`
 
 ### Controles
 
@@ -71,28 +77,6 @@ npm run dev
 - **Botão Fogo** - Disparar
 - **Botão Pulo** - Pular
 - **Giroscópio** (opcional) - Visão alternativa
-
-## 🌐 Multiplayer
-
-### Conectar a um Servidor Existente
-
-1. No menu principal, clique em **MULTIPLAYER**
-2. Digite o endereço do servidor (ex: \`localhost:3000\` ou \`192.168.1.100:3000\`)
-3. Clique em **CONECTAR**
-
-### Hospedar um Servidor Local
-
-1. Instale dependências do servidor:
-\`\`\`bash
-npm install express socket.io
-\`\`\`
-
-2. Inicie o servidor:
-\`\`\`bash
-npm run server
-\`\`\`
-
-3. Conecte clientes ao \`localhost:3000\`
 
 ## 📱 Build para Mobile
 
