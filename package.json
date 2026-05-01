@@ -1,0 +1,34 @@
+{
+  "name": "iron-epoch-1899",
+  "version": "1.0.0",
+  "description": "A retro-style FPS set in an alternate history 1899 steampunk gothic world",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "server": "node server.js",
+    "dev-full": "npm run server & npm run dev"
+  },
+  "keywords": [
+    "game",
+    "fps",
+    "webgl",
+    "three.js",
+    "multiplayer"
+  ],
+  "author": "Iron Epoch Team",
+  "license": "MIT",
+  "dependencies": {
+    "three": "^r128",
+    "socket.io-client": "^4.7.2",
+    "howler": "^2.2.4"
+  },
+  "devDependencies": {
+    "vite": "^5.0.0",
+    "typescript": "^5.3.0",
+    "@types/three": "^r128",
+    "@types/howler": "^2.2.11"
+  }
+}

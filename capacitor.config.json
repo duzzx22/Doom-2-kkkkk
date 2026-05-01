@@ -1,0 +1,23 @@
+{
+  "appId": "com.ironepoch.game",
+  "appName": "Iron Epoch: 1899",
+  "webDir": "dist",
+  "server": {
+    "headers": {
+      "Access-Control-Allow-Origin": "*"
+    }
+  },
+  "ios": {
+    "contentInset": "automatic"
+  },
+  "android": {
+    "allowMixedContent": true
+  },
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 3000,
+      "backgroundColor": "#1a1a2e",
+      "launchAutoHide": true
+    }
+  }
+}

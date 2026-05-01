@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#1a1a2e" />
+  <link rel="manifest" href="/manifest.json" />
+  <link rel="icon" type="image/png" href="/icon.png" />
+  <link rel="apple-touch-icon" href="/icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
+  <title>Iron Epoch: 1899</title>
+</head>
+<body>
+  <div id="app">
+    <!-- Game Canvas -->
+    <canvas id="gameCanvas"></canvas>
+    
+    <!-- Loading Screen -->
+    <div id="loadingScreen" class="screen">
+      <div class="screen-content">
+        <h1 class="title">IRON EPOCH</h1>
+        <p class="subtitle">1899</p>
+        <div class="loading-bar">
+          <div class="loading-progress"></div>
+        </div>
+        <p class="loading-text">CARREGANDO...</p>
+      </div>
+    </div>
+
+    <!-- Main Menu -->
+    <div id="mainMenu" class="screen" style="display: none;">
+      <div class="screen-content">
+        <h1 class="title">IRON EPOCH</h1>
+        <p class="subtitle">1899</p>
+        <div class="menu-buttons">
+          <button class="menu-btn" id="btnSinglePlayer">CAMPAÑA OFFLINE</button>
+          <button class="menu-btn" id="btnMultiplayer">MULTIPLAYER</button>
+          <button class="menu-btn" id="btnSettings">CONFIGURAÇÃO</button>
+          <button class="menu-btn" id="btnQuit">SAIR</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Multiplayer Lobby -->
+    <div id="multiplayerMenu" class="screen" style="display: none;">
+      <div class="screen-content">
+        <h1 class="title">MULTIPLAYER</h1>
+        <div class="menu-buttons">
+          <input type="text" id="serverInput" placeholder="IP do Servidor (ex: localhost:3000)" class="text-input" />
+          <button class="menu-btn" id="btnConnect">CONECTAR</button>
+          <button class="menu-btn" id="btnHostGame">CRIAR SALA</button>
+          <button class="menu-btn" id="btnBackMultiplayer">VOLTAR</button>
+        </div>
+        <p id="connectionStatus" class="status-text"></p>
+      </div>
+    </div>
+
+    <!-- Settings Menu -->
+    <div id="settingsMenu" class="screen" style="display: none;">
+      <div class="screen-content">
+        <h1 class="title">CONFIGURAÇÃO</h1>
+        <div class="settings-options">
+          <label class="setting-item">
+            <span>VOLUME:</span>
+            <input type="range" id="volumeSlider" min="0" max="100" value="70" />
+          </label>
+          <label class="setting-item">
+            <input type="checkbox" id="gyroToggle" />
+            <span>USAR GIROSCÓPIO (MOBILE)</span>
+          </label>
+          <label class="setting-item">
+            <input type="checkbox" id="autoFireToggle" />
+            <span>AUTO-DISPARO</span>
+          </label>
+          <label class="setting-item">
+            <input type="checkbox" id="crtToggle" checked />
+            <span>EFEITO CRT</span>
+          </label>
+          <button class="menu-btn" id="btnBackSettings" style="margin-top: 20px;">VOLTAR</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pause Menu -->
+    <div id="pauseMenu" class="screen" style="display: none;">
+      <div class="screen-content">
+        <h1 class="title">PAUSADO</h1>
+        <div class="menu-buttons">
+          <button class="menu-btn" id="btnResume">CONTINUAR</button>
+          <button class="menu-btn" id="btnSettingsPause">CONFIGURAÇÃO</button>
+          <button class="menu-btn" id="btnMainMenuPause">MENU PRINCIPAL</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Game Over Screen -->
+    <div id="gameOverScreen" class="screen" style="display: none;">
+      <div class="screen-content">
+        <h1 class="title">FIM DE JOGO</h1>
+        <div id="gameOverStats" class="stats-display"></div>
+        <div class="menu-buttons">
+          <button class="menu-btn" id="btnRetry">TENTAR NOVAMENTE</button>
+          <button class="menu-btn" id="btnMainMenuGameOver">MENU PRINCIPAL</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- HUD (In-Game UI) -->
+    <div id="hud" style="display: none;">
+      <div id="healthDisplay" class="hud-element">
+        <div class="health-bar">
+          <div id="healthFill" class="health-fill"></div>
+        </div>
+        <p id="healthText">SAÚDE: 100/100</p>
+      </div>
+      
+      <div id="ammoDisplay" class="hud-element">
+        <p id="ammoText">MUNIÇÃO: 30/180</p>
+        <p id="weaponText">REVÓLVER</p>
+      </div>
+
+      <div id="crosshair" class="crosshair"></div>
+
+      <div id="touchControls" class="touch-controls" style="display: none;">
+        <div id="leftJoystick" class="joystick">
+          <div class="joystick-base">
+            <div class="joystick-handle"></div>
+          </div>
+        </div>
+        <div id="rightJoystick" class="joystick">
+          <div class="joystick-base">
+            <div class="joystick-handle"></div>
+          </div>
+        </div>
+        <button id="fireButton" class="fire-button">FOGO</button>
+        <button id="jumpButton" class="action-button">PULO</button>
+      </div>
+
+      <div id="minimap" class="minimap">
+        <canvas id="minimapCanvas" width="200" height="200"></canvas>
+      </div>
+
+      <p id="debugInfo" class="debug-info" style="display: none;"></p>
+    </div>
+  </div>
+
+  <script type="module" src="/src/main.ts"></script>
+</body>
+</html>
